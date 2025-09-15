@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 02 – Biblioteca Universitaria</title>
+</head>
+<body>
+  <h1>Ejercicio 02</h1>
+  <p>
+    Abre la consola del navegador para ver las pruebas.
+  </p>
+  <script type="module">
+    import { prestarLibro, buscarLibros } from './ejercicio_biblioteca.js';
+    
+    // Función async para manejar las pruebas
+    async function ejecutarPruebas() {
+      console.log('=== Pruebas Ej02 ===');
+
+      console.log('Prestando libro 1 al estudiante 2 (Pedro Gomez):');
+      const resultadoPrestamo = await prestarLibro(1, 2, '2025-09-15');
+      console.log(resultadoPrestamo);
+
+      console.log('\nLibros de Programación disponibles:');
+      const librosProgramacion = await buscarLibros({ categoria: 'Programación', disponible: true });
+      console.log(librosProgramacion);
+
+      console.log('\nBúsqueda por título que contenga "UX":');
+      const librosUX = await buscarLibros({ titulo: 'UX' });
+      console.log(librosUX);
+
+      console.log('=== Fin ===');
+    }
+
+    // Ejecutar las pruebas
+    ejecutarPruebas().catch(error => {
+      console.error('Error en las pruebas:', error);
+    });
+  </script>
+</body>
+</html>

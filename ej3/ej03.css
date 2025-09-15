@@ -24,13 +24,6 @@ body {
   width: 200px;
 }
 
-.segment {
-  /* background: #030303; /* off */
-  background: #e0e000;
-  /* on */
-  position: absolute;
-}
-
 /* Diseño de los 7 segmentos. Por favor no modificar*/
 #seg-a {
   top: 0;
@@ -73,4 +66,17 @@ body {
   left: 20px;
   width: 160px;
   height: 30px;
+}
+
+.segment{
+  position: absolute;
+  background: #1a1a1a;      /* OFF */
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,.4);
+  transition: background .15s ease, box-shadow .15s ease;
+}
+
+.segment.on{
+  background: #13cd09;      /* ON */
+  box-shadow: 0 0 14px rgba(4, 220, 72, 0.8), inset 0 0 10px rgba(255,255,255,.25);
 }

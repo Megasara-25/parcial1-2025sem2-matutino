@@ -1,18 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Ejercicio 4</title>
-  </head>
-  <body>
-    <input name="name" placeholder="Name" required />
-    <input name="email" placeholder="Email" required />
-    <select name="role">
-      <option>Admin</option>
-      <option>Editor</option>
-      <option>Viewer</option>
-    </select>
-    <button id="add">Add</button>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ej04 — Mini-Contacts API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Mini-Contacts API</h1>
 
-    <ul id="users"></ul>
-  </body>
+    <form id="form" class="card">
+      <div class="row">
+        <input name="name" placeholder="Name" required />
+        <input name="email" placeholder="Email" required />
+        <select name="role" required>
+          <option>Viewer</option>
+          <option>Editor</option>
+          <option>Admin</option>
+        </select>
+        <button id="add">Add</button>
+      </div>
+      <p class="help">Inicia JSON Server y luego usa este formulario. Los cambios se veran abajo.</p>
+    </form>
+
+    <section class="card">
+      <header class="list-head">
+        <strong>Usuarios</strong>
+        <button id="reload" type="button" title="Recargar">↻</button>
+      </header>
+      <ul id="users" class="list"></ul>
+    </section>
+
+    <p class="muted">
+      Endpoints esperados:
+      <code>GET/POST http://localhost:3000/users</code>,
+      <code>PATCH/DELETE http://localhost:3000/users/:id</code>
+    </p>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script type="module" src="script.js"></script>
+</body>
 </html>
